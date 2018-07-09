@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		AB0750E120F3FCA800348D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0750E020F3FCA800348D10 /* AppDelegate.swift */; };
-		AB0750E320F3FCA800348D10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0750E220F3FCA800348D10 /* ViewController.swift */; };
+		AB0750E320F3FCA800348D10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0750E220F3FCA800348D10 /* LoginViewController.swift */; };
 		AB0750E620F3FCA800348D10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0750E420F3FCA800348D10 /* Main.storyboard */; };
 		AB0750E820F3FCA800348D10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0750E720F3FCA800348D10 /* Assets.xcassets */; };
 		AB0750EB20F3FCA800348D10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0750E920F3FCA800348D10 /* LaunchScreen.storyboard */; };
+		ABECBBA220F402A800D5F509 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABECBBA120F402A800D5F509 /* LoginRouter.swift */; };
+		ABECBBA420F4050300D5F509 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABECBBA320F4050300D5F509 /* LoginViewModel.swift */; };
+		ABECBBA720F4074200D5F509 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABECBBA620F4074200D5F509 /* HomeViewController.swift */; };
+		ABECBBA920F4079200D5F509 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABECBBA820F4079200D5F509 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB0750DD20F3FCA800348D10 /* MVVM-Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-Router.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0750E020F3FCA800348D10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB0750E220F3FCA800348D10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB0750E220F3FCA800348D10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB0750E520F3FCA800348D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB0750E720F3FCA800348D10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB0750EA20F3FCA800348D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB0750EC20F3FCA800348D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABECBBA120F402A800D5F509 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginRouter.swift; path = "MVVM-Router/Scenes/LoginRouter.swift"; sourceTree = SOURCE_ROOT; };
+		ABECBBA320F4050300D5F509 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		ABECBBA620F4074200D5F509 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ABECBBA820F4079200D5F509 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +63,41 @@
 			isa = PBXGroup;
 			children = (
 				AB0750E020F3FCA800348D10 /* AppDelegate.swift */,
-				AB0750E220F3FCA800348D10 /* ViewController.swift */,
-				AB0750E420F3FCA800348D10 /* Main.storyboard */,
 				AB0750E720F3FCA800348D10 /* Assets.xcassets */,
-				AB0750E920F3FCA800348D10 /* LaunchScreen.storyboard */,
 				AB0750EC20F3FCA800348D10 /* Info.plist */,
+				AB0750E920F3FCA800348D10 /* LaunchScreen.storyboard */,
+				AB0750E420F3FCA800348D10 /* Main.storyboard */,
+				ABECBB9F20F4001100D5F509 /* Scenes */,
 			);
 			path = "MVVM-Router";
+			sourceTree = "<group>";
+		};
+		ABECBB9F20F4001100D5F509 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ABECBBA520F4072A00D5F509 /* Home */,
+				ABECBBA020F4002800D5F509 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		ABECBBA020F4002800D5F509 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AB0750E220F3FCA800348D10 /* LoginViewController.swift */,
+				ABECBBA120F402A800D5F509 /* LoginRouter.swift */,
+				ABECBBA320F4050300D5F509 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		ABECBBA520F4072A00D5F509 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ABECBBA620F4074200D5F509 /* HomeViewController.swift */,
+				ABECBBA820F4079200D5F509 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB0750E320F3FCA800348D10 /* ViewController.swift in Sources */,
+				ABECBBA720F4074200D5F509 /* HomeViewController.swift in Sources */,
+				ABECBBA920F4079200D5F509 /* HomeViewModel.swift in Sources */,
+				ABECBBA420F4050300D5F509 /* LoginViewModel.swift in Sources */,
+				AB0750E320F3FCA800348D10 /* LoginViewController.swift in Sources */,
 				AB0750E120F3FCA800348D10 /* AppDelegate.swift in Sources */,
+				ABECBBA220F402A800D5F509 /* LoginRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

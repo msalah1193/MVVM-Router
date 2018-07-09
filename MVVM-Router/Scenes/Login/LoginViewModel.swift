@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct LoginViewModel {
+    // returns username string
+    func login() -> String {
+        return "Username is Mohamed Salah 11"
+    }
+}

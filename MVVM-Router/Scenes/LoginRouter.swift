@@ -10,16 +10,26 @@ import UIKit
 
 protocol LoginRouter {
     typealias Route = LoginViewController.LoginRoute
-    func navigate(to route: Route, from viewController: UIViewController, sender: Any?)
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    
+    weak var viewController: LoginViewController! { get }
+    init(viewController: LoginViewController)
+    
+    func navigate(to route: Route)
+    func prepare(for segue: UIStoryboardSegue)
 }
 
-struct DefaultLoginRouter: LoginRouter {
-    func navigate(to route: Route, from viewController: UIViewController, sender: Any?) {
-        viewController.performSegue(withIdentifier: route.rawValue, sender: sender)
+class DefaultLoginRouter: LoginRouter {
+    weak var viewController: LoginViewController!
+    
+    required init(viewController: LoginViewController) {
+        self.viewController = viewController
     }
     
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func navigate(to route: Route) {
+        viewController.performSegue(withIdentifier: route.rawValue, sender: nil)
+    }
+    
+    func prepare(for segue: UIStoryboardSegue) {
         guard let segueID = segue.identifier,
             let route = LoginViewController.LoginRoute(rawValue: segueID)  else {
             return
@@ -27,16 +37,17 @@ struct DefaultLoginRouter: LoginRouter {
         
         switch route {
         case .home:
-            passDataToHome(segue, sender: sender)
+            passDataToHome(segue)
         case .resetPassword:
             break
         }
     }
 }
 
+// MARK: - extension for passing data logic
 extension DefaultLoginRouter {
-    private func passDataToHome(_ segue: UIStoryboardSegue, sender: Any?) {
+    private func passDataToHome(_ segue: UIStoryboardSegue) {
         let homeVC = segue.destination as! HomeViewController
-        homeVC.viewModel.username = sender as? String
+        homeVC.viewModel.username = viewController.viewModel.username
     }
 }

@@ -8,9 +8,11 @@
 
 import Foundation
 
-struct LoginViewModel {
-    // returns username string
-    func login() -> String {
-        return "Username is Mohamed Salah 11"
+class LoginViewModel {
+    var username: String?
+    
+    func login(completion: () -> Void) {
+        username = "Username is Mohamed Salah 11"
+        completion()
     }
 }

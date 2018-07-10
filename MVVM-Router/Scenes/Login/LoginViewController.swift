@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        router = DefaultLoginRouter()
+        router = DefaultLoginRouter(viewController: self)
         viewModel = LoginViewModel()
     }
     
@@ -41,17 +41,18 @@ class LoginViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router.prepare(for: segue, sender: sender)
+        router.prepare(for: segue)
     }
 
     // MARK: - IBActions
     @IBAction func presentHome(_ sender: Any) {
-        let username = viewModel.login()
-        router.navigate(to: .home, from: self, sender: username)
+        viewModel.login {
+            self.router.navigate(to: .home)
+        }
     }
     
     @IBAction func presentResetPassword(_ sender: Any) {
-        router.navigate(to: .resetPassword, from: self, sender: nil)
+        router.navigate(to: .resetPassword)
     }
     
 }
